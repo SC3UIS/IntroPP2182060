@@ -1,0 +1,20 @@
+#Ejecución en Guane-1
+
+Enter the no. of sub-intervals: 8
+
+Enter the initial limit: 4
+
+Enter the final limit: 6
+
+The integral is: 50.687500
+
+#Ejecución en maquina personal
+
+Enter the no. of sub-intervals:
+6
+
+Enter the initial limit: 3
+
+Enter the final limit: 4
+
+The integral is: 12.337963
