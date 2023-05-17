@@ -1,0 +1,62 @@
+el comando time, que ofrece información en tres categorías:
+
+real: Tiempo total transcurrido desde que se inició el programa hasta que terminó.
+user: Tiempo de CPU que el programa pasó en el modo de usuario (es decir, no en el sistema operativo).
+sys: Tiempo de CPU que el programa pasó en el modo del sistema operativo (es decir, realizando operaciones de E/S, etc.).
+Los valores user y sys juntos componen el tiempo total de CPU utilizado por tu programa. En un programa de un solo procesador, este tiempo debería ser igual o ligeramente menor que el tiempo real debido a otras operaciones del sistema que pueden interrumpir tu programa. En un programa multiprocesador, el tiempo total de CPU puede ser significativamente mayor que el tiempo real, ya que varios procesadores pueden estar trabajando simultáneamente.
+
+
+Se arrojaron estos resultados para los mismos parametros en normal - omp - mpi:
+
+NORMAL -> :
+
+Enter the no. of sub-intervals: 1000
+
+Enter the initial limit: 3
+
+Enter the final limit: 8
+
+The integral is: 161.666688
+
+real    0m6.444s
+user    0m0.001s
+sys     0m0.001s
+
+MPI -> : 
+
+Enter the no. of sub-intervals: 1000
+
+Enter the initial limit: 3
+
+Enter the final limit: 8
+
+The integral is: 161.666688
+
+real    0m3.805s
+user    0m0.005s
+sys     0m0.043s
+
+OMP ->  :
+
+Enter the no. of sub-intervals: 1000
+
+Enter the initial limit: 3
+
+Enter the final limit: 8
+
+The integral is: 161.666687
+
+real    0m5.415s
+user    0m0.017s
+sys     0m0.003s
+
+Ahora, a partir de estos resultados:
+
+El programa normal tomó 6.444 segundos en total para ejecutarse.
+El programa MPI tomó 3.805 segundos en total para ejecutarse.
+El programa OMP tomó 5.415 segundos en total para ejecutarse.
+Por lo tanto, el programa MPI fue el más rápido, seguido por el programa OMP y luego el programa normal. Esto tiene sentido ya que tanto MPI como OMP permiten la ejecución en paralelo, lo que puede acelerar el cálculo de la integral.
+
+En términos de aceleración, el programa MPI obtuvo una aceleración de aproximadamente 6.444 / 3.805 = 1.69, y el programa OMP obtuvo una aceleración de aproximadamente 6.444 / 5.415 = 1.19.
+
+Es importante señalar que estos resultados pueden variar dependiendo del sistema en el que se estén ejecutando los programas y de cuántos procesadores estén disponibles. Los resultados también pueden variar si el número de subintervalos o los límites de integración cambian. Para obtener una comparación más precisa, puedes considerar tomar varios tiempos de ejecución para cada programa y calcular un tiempo promedio.
